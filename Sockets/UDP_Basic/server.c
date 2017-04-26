@@ -3,7 +3,7 @@
 #include <netinet/in.h>    // AF_INET
 #include <string.h>        // string APIs
 
-#define SERV_ADDR "10.144.172.186"
+#define SERV_ADDR "10.0.2.14"
 #define SIZE      50
 
 static void RX_ClientData(const int iSockfd, struct sockaddr *const pCli_addr);
@@ -30,7 +30,7 @@ static void RX_ClientData(const int iSockfd, struct sockaddr *const pCli_addr)
         }
 
         // Transmit to client
-        printf("%s: Sending ACK..\n");
+        printf("%s: Sending ACK..\n", __FILE__);
         strcpy(sendbuff, "ACK: ");
         strcat(sendbuff, recvbuff);
         size = sendto(iSockfd, sendbuff, strlen(sendbuff), 0, (struct sockaddr *)pCli_addr, \

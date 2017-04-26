@@ -3,7 +3,7 @@
 #include <netinet/in.h>    // AF_INET
 #include <string.h>        // String APIs
 
-#define CLI_ADDR "10.144.172.187i"
+#define CLI_ADDR "10.144.172.187"
 #define SIZE     50
 
 
@@ -25,6 +25,7 @@ static void TX_DataToServer(const int iSockfd, const struct sockaddr *pServAddr)
 
         size = sendto(iSockfd, sendbuff, sizeof(sendbuff), 0, (struct sockaddr *)pServAddr, \
                                                                            (socklen_t) serv_len);
+        if(size < 0)
         {
             perror("Sendto failed..");
         }
