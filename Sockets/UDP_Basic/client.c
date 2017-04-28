@@ -3,7 +3,8 @@
 #include <netinet/in.h>    // AF_INET
 #include <string.h>        // String APIs
 
-#define CLI_ADDR "10.144.172.187"
+#define CLI_ADDR "192.168.56.31"
+#define SERV_ADDR "192.168.56.111"
 #define SIZE     50
 
 
@@ -59,7 +60,7 @@ main()
 
     // Initialise the port and address values
     serv_addr.sin_family = AF_INET;
-    iRet = inet_pton(AF_INET, CLI_ADDR, &serv_addr.sin_addr);
+    iRet = inet_pton(AF_INET, SERV_ADDR, &serv_addr.sin_addr);
     if(iRet != 1)
     {
         perror("inet_pton failed..");

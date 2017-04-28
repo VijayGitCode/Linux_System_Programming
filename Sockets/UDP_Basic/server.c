@@ -3,7 +3,7 @@
 #include <netinet/in.h>    // AF_INET
 #include <string.h>        // string APIs
 
-#define SERV_ADDR "10.0.2.14"
+#define SERV_ADDR "192.168.56.111"
 #define SIZE      50
 
 static void RX_ClientData(const int iSockfd, struct sockaddr *const pCli_addr);
@@ -26,7 +26,7 @@ static void RX_ClientData(const int iSockfd, struct sockaddr *const pCli_addr)
             perror("recvfrom failed..");
         } else
         {
-            printf("%s: The received string is \"%s\"\n", __FILE__, recvbuff);
+            printf("%s: The received string is: %s\n", __FILE__, recvbuff);
         }
 
         // Transmit to client
