@@ -21,7 +21,8 @@ int main(int argc, char **argv)
        perror("mq_open failed..");
    }
 
-   memset(sendbuff, 0xEE, SIZE);
+   //memset(sendbuff, 0xEE, SIZE);
+   strcpy(sendbuff, argv[2]);
 
    iRet = mq_send(mqd, sendbuff, SIZE, PRIO);
    if(iRet < 0)
